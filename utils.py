@@ -6,7 +6,7 @@ from numpy import loadtxt
 def normalizeRatings(Y, R):
     Ymean = (np.sum(Y * R, axis=1) / (np.sum(R, axis=1) + 1e-12)).reshape(
         -1, 1
-    )  # here we are finding the average rating of the movie
+    )  # here we are finding the average rating of the movie row_wise or based on all the users
     Ynorm = Y - np.multiply(
         Ymean, R
     )  # inorder to prevent the negative rating value if the user didnot rate the movie, we are subtracting the Y using np.multiply of Y mean and R
